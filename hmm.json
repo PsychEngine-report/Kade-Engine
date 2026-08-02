@@ -79,13 +79,13 @@
     {
       "name": "extension-webm",
       "type": "git",
-      "ref": "main",
+      "ref": "master",
       "url": "https://github.com/KadeDev/extension-webm"
     },
     {
       "name": "faxe",
       "type": "git",
-      "ref": "main",
+      "ref": "master",
       "url": "https://github.com/uhrobots/faxe"
     },
     {
