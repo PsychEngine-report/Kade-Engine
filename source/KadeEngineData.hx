@@ -6,6 +6,33 @@ class KadeEngineData
 {
 	public static function initSave()
 	{
+		if (FlxG.save.data.extraKeys != null)
+			extraKeys = FlxG.save.data.extraKeys;
+		if (FlxG.save.data.hitboxLocation != null)
+			hitboxLocation = FlxG.save.data.hitboxLocation;
+		if (FlxG.save.data.hitboxhint != null)
+			hitboxhint = FlxG.save.data.hitboxhint;
+		if (FlxG.save.data.hitboxmode != null)
+			hitboxmode = FlxG.save.data.hitboxmode;
+		if (FlxG.save.data.hitboxtype != null)
+			hitboxtype = FlxG.save.data.hitboxtype;
+		if (FlxG.save.data.storageType != null)
+			storageType = FlxG.save.data.storageType;
+		if (FlxG.save.data.mobilePadAlpha != null)
+			mobilePadAlpha = FlxG.save.data.mobilePadAlpha;
+		if (FlxG.save.data.hitboxalpha != null)
+			hitboxalpha = FlxG.save.data.hitboxalpha;
+		if (FlxG.save.data.extraKeyReturn1 != null)
+			extraKeyReturn1 = FlxG.save.data.extraKeyReturn1;
+		if (FlxG.save.data.extraKeyReturn2 != null)
+			extraKeyReturn2 = FlxG.save.data.extraKeyReturn2;
+		if (FlxG.save.data.extraKeyReturn3 != null)
+			extraKeyReturn3 = FlxG.save.data.extraKeyReturn3;
+		if (FlxG.save.data.extraKeyReturn4 != null)
+			extraKeyReturn4 = FlxG.save.data.extraKeyReturn4;
+		if (FlxG.save.data.wideScreen != null)
+			wideScreen = FlxG.save.data.wideScreen;
+		
 		if (FlxG.save.data.weekUnlocked == null)
 			FlxG.save.data.weekUnlocked = 7;
 

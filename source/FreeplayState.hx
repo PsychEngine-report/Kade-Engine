@@ -7,8 +7,8 @@ import flixel.system.FlxSound;
 import smTools.SMFile;
 #end
 #if FEATURE_FILESYSTEM
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFileSystem as FileSystem;
+import funk.PsychFile as File;
 #end
 import Song.SongData;
 import flixel.input.gamepad.FlxGamepad;

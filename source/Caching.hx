@@ -12,8 +12,8 @@ import haxe.Exception;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 #if FEATURE_FILESYSTEM
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFileSystem as FileSystem;
+import funk.PsychFile as File;
 #end
 import flixel.FlxG;
 import flixel.FlxSprite;

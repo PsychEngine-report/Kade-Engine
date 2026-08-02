@@ -1,5 +1,5 @@
 #if FEATURE_FILESYSTEM
-import sys.io.File;
+import funk.PsychFile as File;
 #end
 import Controls.Control;
 import flixel.FlxG;

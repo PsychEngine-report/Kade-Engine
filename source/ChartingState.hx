@@ -4,8 +4,8 @@ import Song.SongMeta;
 import openfl.system.System;
 import lime.app.Application;
 #if FEATURE_FILESYSTEM
-import sys.io.File;
-import sys.FileSystem;
+import funk.PsychFileSystem as FileSystem;
+import funk.PsychFile as File;
 #end
 import flixel.addons.ui.FlxUIButton;
 import flixel.addons.ui.StrNameLabel;

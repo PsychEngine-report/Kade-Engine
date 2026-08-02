@@ -13,9 +13,9 @@ import openfl.media.Sound;
 import smTools.SMFile;
 #end
 #if FEATURE_FILESYSTEM
-import sys.io.File;
+import funk.PsychFileSystem as FileSystem;
 import Sys;
-import sys.FileSystem;
+import funk.PsychFile as File;
 #end
 import openfl.ui.KeyLocation;
 import openfl.events.Event;
@@ -1038,6 +1038,10 @@ class PlayState extends MusicBeatState
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, handleInput);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, releaseInput);
 		super.create();
+		#if TOUCH_CONTROLS
+		addMobilePad("NONE", "P");
+		addMobilePadCamera();
+		#end
 	}
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
@@ -1154,6 +1158,11 @@ class PlayState extends MusicBeatState
 
 		startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
 		{
+			#if TOUCH_CONTROLS
+			MusicBeatState.mobilec.visible = true;
+			if (MusicBeatState.checkHitbox != true)
+				MusicBeatState.mobilec.alpha = ClientPrefs.mobilePadAlpha;
+			#end
 			// this just based on beatHit stuff but compact
 			if (allowedToHeadbang && swagCounter % gfSpeed == 0)
 				gf.dance();
@@ -3296,6 +3305,11 @@ class PlayState extends MusicBeatState
 	function endSong():Void
 	{
 		endingSong = true;
+		#if TOUCH_CONTROLS
+		MusicBeatState.mobilec.visible = false;
+		if (MusicBeatState.checkHitbox != false)
+			MusicBeatState.mobilec.alpha = ClientPrefs.mobilePadAlpha;
+		#end
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, handleInput);
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, releaseInput);
 		if (useVideo)

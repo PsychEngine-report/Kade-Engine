@@ -296,12 +296,12 @@ class ModchartState
 	{
 		#if FEATURE_FILESYSTEM
 		// TODO: Make this use OpenFlAssets.
-		var data:BitmapData = BitmapData.fromFile(Sys.getCwd() + "assets/data/songs/" + PlayState.SONG.songId + '/' + spritePath + ".png");
+		var data:BitmapData = BitmapData.fromFile("assets/data/songs/" + PlayState.SONG.songId + '/' + spritePath + ".png");
 
 		var sprite:FlxSprite = new FlxSprite(0, 0);
 
 		sprite.frames = FlxAtlasFrames.fromSparrow(FlxGraphic.fromBitmapData(data),
-			Sys.getCwd() + "assets/data/songs/" + PlayState.SONG.songId + "/" + spritePath + ".xml");
+			"assets/data/songs/" + PlayState.SONG.songId + "/" + spritePath + ".xml");
 
 		trace(sprite.frames.frames.length);
 

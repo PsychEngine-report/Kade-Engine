@@ -137,6 +137,11 @@ class MainMenuState extends MusicBeatState
 		changeItem();
 
 		super.create();
+
+		#if TOUCH_CONTROLS
+		addMobilePad("FULL", "A_B");
+		addMobilePadCamera();
+		#end
 	}
 
 	var selectedSomethin:Bool = false;

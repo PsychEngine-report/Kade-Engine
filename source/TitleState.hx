@@ -3,6 +3,10 @@ package;
 #if FEATURE_STEPMANIA
 import smTools.SMFile;
 #end
+#if FEATURE_FILESYSTEM
+import funk.PsychFileSystem as FileSystem;
+import funk.PsychFile as File;
+#end
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -45,10 +49,14 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+		#if TOUCH_CONTROLS
+		MobileData.init();
+		#end
+		
 		// TODO: Refactor this to use OpenFlAssets.
 		#if FEATURE_FILESYSTEM
-		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
-			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
+		if (!FileSystem.exists("/assets/replays"))
+			FileSystem.createDirectory("/assets/replays");
 		#end
 
 		@:privateAccess

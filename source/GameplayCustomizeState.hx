@@ -333,6 +333,11 @@ class GameplayCustomizeState extends MusicBeatState
 		sick.y = FlxG.save.data.changedHitY;
 
 		FlxG.mouse.visible = true;
+
+		#if TOUCH_CONTROLS
+		addMobilePad("FULL", "A_B");
+		addMobilePadCamera();
+		#end
 	}
 
 	override function update(elapsed:Float)

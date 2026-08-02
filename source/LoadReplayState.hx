@@ -17,8 +17,8 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 #if FEATURE_FILESYSTEM
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFileSystem as FileSystem;
+import funk.PsychFile as File;
 #end
 
 class LoadReplayState extends MusicBeatState
@@ -40,7 +40,7 @@ class LoadReplayState extends MusicBeatState
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.loadImage('menuDesat'));
 		// TODO: Refactor this to use OpenFlAssets.
 		#if FEATURE_FILESYSTEM
-		controlsStrings = sys.FileSystem.readDirectory(Sys.getCwd() + "/assets/replays/");
+		controlsStrings = FileSystem.readDirectory("/assets/replays/");
 		#end
 		trace(controlsStrings);
 
@@ -100,6 +100,11 @@ class LoadReplayState extends MusicBeatState
 		changeSelection(0);
 
 		super.create();
+
+		#if TOUCH_CONTROLS
+		addMobilePad("FULL", "A_B");
+		addMobilePadCamera();
+		#end
 	}
 
 	function sortByDate(a:String, b:String)

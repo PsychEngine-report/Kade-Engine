@@ -51,6 +51,11 @@ class GameOverState extends FlxTransitionableState
 		FlxTween.tween(restart, {y: restart.y + 40}, 7, {ease: FlxEase.quartInOut, type: PINGPONG});
 
 		super.create();
+
+		#if TOUCH_CONTROLS
+		addMobilePad("FULL", "A_B");
+		addMobilePadCamera();
+		#end
 	}
 
 	private var fading:Bool = false;

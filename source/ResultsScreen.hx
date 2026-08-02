@@ -5,8 +5,8 @@ import haxe.Exception;
 import smTools.SMFile;
 #end
 #if FEATURE_FILESYSTEM
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFileSystem as FileSystem;
+import funk.PsychFile as File;
 #end
 import openfl.geom.Matrix;
 import openfl.display.BitmapData;
@@ -182,6 +182,10 @@ class ResultsScreen extends FlxSubState
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
 		super.create();
+		#if TOUCH_CONTROLS
+		addMobilePad("FULL", "A_B");
+		addMobilePadCamera();
+		#end
 	}
 
 	var frames = 0;

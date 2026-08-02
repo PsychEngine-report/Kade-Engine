@@ -1,6 +1,6 @@
 #if FEATURE_FILESYSTEM
-import sys.FileSystem;
-import sys.io.File;
+import funk.PsychFileSystem as FileSystem;
+import funk.PsychFile as File;
 #end
 import openfl.display.BitmapData;
 import flixel.FlxSprite;

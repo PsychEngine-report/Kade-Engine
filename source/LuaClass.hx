@@ -9,8 +9,8 @@ import flixel.FlxSprite;
 import lime.app.Application;
 import openfl.Lib;
 #if FEATURE_FILESYSTEM
-import sys.io.File;
-import sys.FileSystem;
+import funk.PsychFileSystem as FileSystem;
+import funk.PsychFile as File;
 #end
 import flash.display.BitmapData;
 import flixel.graphics.frames.FlxAtlasFrames;

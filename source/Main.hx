@@ -46,6 +46,10 @@ class Main extends Sprite
 	{
 		instance = this;
 
+		#if TOUCH_CONTROLS
+		MobileData.init();
+		#end
+
 		super();
 
 		if (stage != null)

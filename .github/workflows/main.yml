@@ -1,0 +1,54 @@
+name: Build Kade Engine
+
+on: workflow_dispatch
+
+jobs:
+  Build:
+    name: ${{ matrix.name }}
+    strategy:
+      matrix:
+        include:
+          - name: Windows
+            os: windows-2022
+            buildArgs: "windows -D officialBuild -final"
+            artifactName: windowsBuild
+            artifactPath: export/release/windows/bin/*
+            setupCommand: ./setup/windows.bat
+            system: Windows
+          - name: Android-Arm64
+            os: ubuntu-24.04
+            buildArgs: "android -D officialBuild -ONLY_ARM64 -final" 
+            setupCommand: sh ./setup/unix.sh
+            artifactName: androidBuild-Arm64
+            artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
+            system: Android
+          - name: Android-Armv7
+            os: ubuntu-24.04
+            buildArgs: "android -D officialBuild -ONLY_ARMV7 -final"
+            setupCommand: sh ./setup/unix.sh
+            artifactName: androidBuild-Armv7
+            artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
+            system: Android
+          - name: Android-Both
+            os: ubuntu-24.04
+            buildArgs: "android -D officialBuild -final" 
+            setupCommand: sh ./setup/unix.sh
+            artifactName: androidBuild-Both
+            artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
+            system: Android
+          - name: iOS
+            os: macos-15
+            setupCommand: sh ./setup/unix.sh
+            buildArgs: "ios -final -nosign -D officialBuild"
+            artifactName: iOSBuild
+            artifactPath: "export/release/ios/build/Release-iphoneos/*.ipa"
+            system: iOS
+    uses: ./.github/workflows/build.yml
+    with:
+        name: ${{ matrix.name }}
+        os: ${{ matrix.os }}
+        buildArgs: ${{ matrix.buildArgs }}
+        setupCommand: ${{ matrix.setupCommand }}
+        artifactName: ${{ matrix.artifactName }}
+        artifactPath: ${{ matrix.artifactPath }}
+        system: ${{ matrix.system }}
