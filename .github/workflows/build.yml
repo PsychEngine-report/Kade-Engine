@@ -64,26 +64,9 @@ jobs:
           add-to-path: false
 
       - name: Install Libraries
-        run: ${{ inputs.setupCommand }}
-
-      - name: Configure Libs
         run: |
-            haxelib set lime git
-            haxelib set openfl 9.1.0
-            haxelib set flixel 5.2.2
-            haxelib set flixel-addons 2.11.0
-            haxelib set flixel-ui 2.4.0
-
-      - name: Install hxvlc for ios
-        if: inputs.system == 'iOS'
-        run: |
-          haxelib remove hxCodec --quiet
-          haxelib install hxvlc 1.9.0 --quiet
-
-      - name: Configure Libs ios only
-        if: inputs.system == 'iOS'
-        run: |
-            haxelib set hxvlc 1.9.0
+            haxelib install hmm --quiet
+            haxelib run hmm install --quiet
 
       - name: Configure Android
         if: inputs.system == 'Android'
