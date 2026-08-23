@@ -26,7 +26,7 @@ on:
         type: string
 
 env:
-  HAXE_VERSION: 4.3.7
+  HAXE_VERSION: 4.1.5
   PROJECT_NAME: "Kade Engine"
 
 jobs:
