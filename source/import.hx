@@ -1,3 +1,4 @@
+#if !macros
 import Paths;
 
 #if sys
@@ -35,4 +36,26 @@ import android.os.Build.VERSION as AndroidVersion;
 import android.os.Environment as AndroidEnvironment;
 import android.os.BatteryManager as AndroidBatteryManager;
 import android.os.Build.VERSION_CODES as AndroidVersionCode;
+#end
+
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.FlxCamera;
+import flixel.util.FlxColor;
+import flixel.text.FlxText;
+import flixel.util.FlxTimer;
+import flixel.math.FlxMath;
+import flixel.math.FlxPoint;
+import flixel.tweens.FlxEase;
+#if !NEW_PSYCH063
+import flixel.system.FlxSound;
+#else
+import flixel.sound.FlxSound;
+#end
+import flixel.util.FlxDestroyUtil;
+import flixel.tweens.FlxTween;
+import flixel.group.FlxSpriteGroup;
+import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.graphics.frames.FlxAtlasFrames;
+import shaders.flixel.system.FlxShader;
 #end
