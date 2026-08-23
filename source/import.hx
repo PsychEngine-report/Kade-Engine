@@ -20,7 +20,7 @@ import mobile.objects.Hitbox;
 import mobile.objects.MobilePad;
 import mobile.backend.MobileData;
 #else
-import mobile.backend.StorageUtil;
+import mobile.backend.StorageUtils;
 import mobile.backend.PsychJNI;
 import mobile.options.*;
 import mobile.backend.MobileScaleMode;
