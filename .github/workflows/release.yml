@@ -40,16 +40,23 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: Windows
+          - name: Windows X64
             os: windows-2022
             setupCommand: ./setup/windows.bat
-            buildArgs: "windows -D officialBuild -final"
-            artifactName: windowsBuild
+            buildArgs: "windows -D officialBuild -D HXCPP_M64 -final -release"
+            artifactName: windowsBuild64
+            artifactPath: export/release/windows/bin/*
+
+          - name: Windows X32
+            os: windows-2022
+            setupCommand: ./setup/windows.bat
+            buildArgs: "windows -D officialBuild -D HXCPP_M32 -final -release"
+            artifactName: windowsBuild32
             artifactPath: export/release/windows/bin/*
             system: Windows
           - name: Android
             os: ubuntu-24.04
-            buildArgs: "android -D officialBuild -final" 
+            buildArgs: "android -D officialBuild -final -release" 
             setupCommand: sh ./setup/unix.sh
             artifactName: androidBuild
             artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
@@ -57,7 +64,7 @@ jobs:
           - name: iOS
             os: macos-15
             setupCommand: sh ./setup/unix.sh
-            buildArgs: "ios -final -nosign -D officialBuild"
+            buildArgs: "ios -final -nosign -D officialBuild -release"
             artifactName: iOSBuild
             artifactPath: "export/release/ios/build/Release-iphoneos/*.ipa"
             system: iOS
@@ -97,13 +104,24 @@ jobs:
       - name: Download Windows Build
         uses: actions/download-artifact@main
         with:
-          name: windowsBuild
-          path: /home/runner/windowsBuild
+          name: windowsBuild64
+          path: /home/runner/windowsBuild64
 
-      - name: Zip Windows Build For Release
+      - name: Zip Windows 64 Build For Release
         run: |
-          cd /home/runner/windowsBuild
-          zip -r "/home/runner/${{ env.PROJECT_NAME }}-Windows.zip" .
+          cd /home/runner/windowsBuild64
+          zip -r "/home/runner/${{ env.PROJECT_NAME }}-Windows-X64.zip" .
+
+      - name: Download WindowsX32 Build
+        uses: actions/download-artifact@main
+        with:
+          name: windowsBuild32
+          path: /home/runner/windowsBuild32
+
+      - name: Zip Windows 32 Build For Release
+        run: |
+          cd /home/runner/windowsBuild32
+          zip -r "/home/runner/${{ env.PROJECT_NAME }}-Windows-X32.zip" .
 
       - name: Publish The Release
         uses: softprops/action-gh-release@v2
@@ -115,4 +133,5 @@ jobs:
           files: |
             /home/runner/*.apk
             /home/runner/*.ipa
+            /home/runner/*.zip
             /home/runner/*.zip
