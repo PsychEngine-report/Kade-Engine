@@ -1,4 +1,4 @@
-#if !macros
+#if !macro
 import Paths;
 
 #if sys
