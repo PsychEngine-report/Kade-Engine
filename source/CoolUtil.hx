@@ -1,6 +1,7 @@
 package;
 
 import openfl.utils.Assets as OpenFlAssets;
+import flixel.util.FlxSave;
 
 using StringTools;
 
