@@ -62,6 +62,11 @@ class ResultsScreen extends FlxSubState
 	public var accuracy:String;
 
 	#if TOUCH_CONTROLS
+	private var controls(get, never):Controls;
+
+	inline function get_controls():Controls
+		return PlayerSettings.player1.controls;
+	
 	public var mobilePad:MobilePad; // this will be changed later
 
 	public static var mobilec:MobileControls;

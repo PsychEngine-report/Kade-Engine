@@ -152,7 +152,7 @@ class MobilePad extends FlxTypedSpriteGroup<MobileButton>
 
 		button.immovable = true;
 		button.solid = button.moves = false;
-		button.antialiasing = // KadeEngineData.globalAntialiasing;
+		button.antialiasing = FlxG.save.data.antialiasing;
 			button.tag = Frames.toUpperCase();
 
 		if (ColorS != -1)
