@@ -202,11 +202,11 @@
   <!-- Defines whether the file system can be read/written directly. Does not work in browser. -->
   <haxedef name="FEATURE_FILESYSTEM" if="desktop || mobile" />
   <!-- Defines whether Lua Modcharts should be enabled. Only works on Windows. -->
-  <haxedef name="FEATURE_LUAMODCHART" if="windows || mobile" />
+  <haxedef name="FEATURE_LUAMODCHART" if="desktop || mobile" />
   <!-- Defines whether WebM videos should be enabled. Currently only enabled on Windows. -->
-  <haxedef name="FEATURE_WEBM" if="windows || mobile" />
+  <haxedef name="FEATURE_WEBM" if="desktop || mobile" />
   <!-- Defines whether StepMania files can be loaded. -->
-  <haxedef name="FEATURE_STEPMANIA" if="windows || mobile" />
+  <haxedef name="FEATURE_STEPMANIA" if="desktop || mobile" />
   <!-- Defines whether the Thread class can be used. -->
   <haxedef name="FEATURE_MULTITHREADING" if="cpp" />
 
