@@ -30,6 +30,7 @@ import lime.app.Application;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.input.FlxKeyManager;
+using MusicBeatSubState;
 
 using StringTools;
 

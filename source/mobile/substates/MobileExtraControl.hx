@@ -84,10 +84,10 @@ class MobileExtraControl extends MusicBeatSubstate
 		super.update(elapsed);
 
 		var accept = controls.ACCEPT;
-		var right = controls.UI_RIGHT_P;
-		var left = controls.UI_LEFT_P;
-		var up = controls.UI_UP_P;
-		var down = controls.UI_DOWN_P;
+		var right = controls.RIGHT_P;
+		var left = controls.LEFT_P;
+		var up = controls.UP_P;
+		var down = controls.DOWN_P;
 		var back = controls.BACK;
 		var reset = controls.RESET || (mobilePad != null && mobilePad.buttonC.justPressed);
 
@@ -264,7 +264,7 @@ class ChooseButton extends FlxSpriteGroup
 
 		titleObject = new FlxText(0, 0, width, title);
 		titleObject.setFormat("VCR OSD Mono", 20, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		//titleObject.antialiasing = KadeEngineData.globalAntialiasing;
+		// titleObject.antialiasing = KadeEngineData.globalAntialiasing;
 		titleObject.borderSize = 2;
 		titleObject.x = bg.width / 2 - titleObject.width / 2;
 		titleObject.y = bg.height / 2 - titleObject.height / 2;
@@ -274,7 +274,7 @@ class ChooseButton extends FlxSpriteGroup
 		{
 			extendTitleObject = new FlxText(0, 0, width, extendTitle);
 			extendTitleObject.setFormat("VCR OSD Mono", 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			//extendTitleObject.antialiasing = KadeEngineData.globalAntialiasing;
+			// extendTitleObject.antialiasing = KadeEngineData.globalAntialiasing;
 			extendTitleObject.borderSize = 2;
 			extendTitleObject.x = bg.width / 2 - extendTitleObject.width / 2;
 			extendTitleObject.y = 30;
