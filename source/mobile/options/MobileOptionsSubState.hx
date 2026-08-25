@@ -34,7 +34,7 @@ class MobileOptionsSubState extends BaseOptionsMenu
 		"EXTERNAL_ONLINE"
 	];
 	var externalPaths:Array<String> = StorageUtil.checkExternalPaths(true);
-	final lastStorageType:String = ClientPrefs.storageType;
+	final lastStorageType:String = KadeEngineData.storageType;
 	#end
 
 	var HitboxTypes:Array<String>;
@@ -117,7 +117,7 @@ class MobileOptionsSubState extends BaseOptionsMenu
 	#if android
 	function onStorageChange():Void
 	{
-		File.saveContent(lime.system.System.applicationStorageDirectory + 'storagetype.txt', ClientPrefs.storageType);
+		File.saveContent(lime.system.System.applicationStorageDirectory + 'storagetype.txt', KadeEngineData.storageType);
 	}
 	#end
 
@@ -126,10 +126,10 @@ class MobileOptionsSubState extends BaseOptionsMenu
 		super.destroy();
 
 		#if android
-		if (ClientPrefs.storageType != lastStorageType)
+		if (KadeEngineData.storageType != lastStorageType)
 		{
 			onStorageChange();
-			ClientPrefs.saveSettings();
+			KadeEngineData.saveSettings();
 			CoolUtil.showPopUp('Storage Type has been changed and you needed restart the game!!\nPress OK to close the game.', 'Notice!');
 			lime.system.System.exit(0);
 		}

@@ -28,29 +28,29 @@ class Hitbox extends FlxSpriteGroup
 	public function new(?CustomMode:String):Void
 	{
 		super();
-		if (ClientPrefs.hitboxhint)
+		if (KadeEngineData.hitboxhint)
 		{
 			hitbox_hint = new FlxSprite(0,
-				(ClientPrefs.hitboxLocation == 'Bottom'
-					&& ClientPrefs.extraKeys != 0) ? -150 : 0).loadGraphic(Paths.image('mobile/Hitbox/hitbox_hint'));
+				(KadeEngineData.hitboxLocation == 'Bottom'
+					&& KadeEngineData.extraKeys != 0) ? -150 : 0).loadGraphic(Paths.image('mobile/Hitbox/hitbox_hint'));
 			add(hitbox_hint);
 		}
-		if ((ClientPrefs.hitboxmode != 'New' && ClientPrefs.hitboxmode != 'Classic' && CustomMode == null) || CustomMode != null)
+		if ((KadeEngineData.hitboxmode != 'New' && KadeEngineData.hitboxmode != 'Classic' && CustomMode == null) || CustomMode != null)
 		{
-			var Custom:String = CustomMode != null ? CustomMode : ClientPrefs.hitboxmode;
+			var Custom:String = CustomMode != null ? CustomMode : KadeEngineData.hitboxmode;
 			if (!MobileData.hitboxModes.exists(Custom))
 				throw 'The Custom Hitbox File doesn\'t exists.';
 
 			var currentHint = MobileData.hitboxModes.get(Custom).hints;
 			if (MobileData.hitboxModes.get(Custom).none != null)
 				currentHint = MobileData.hitboxModes.get(Custom).none;
-			if (ClientPrefs.extraKeys == 1 && MobileData.hitboxModes.get(Custom).single != null)
+			if (KadeEngineData.extraKeys == 1 && MobileData.hitboxModes.get(Custom).single != null)
 				currentHint = MobileData.hitboxModes.get(Custom).single;
-			if (ClientPrefs.extraKeys == 2 && MobileData.hitboxModes.get(Custom).double != null)
+			if (KadeEngineData.extraKeys == 2 && MobileData.hitboxModes.get(Custom).double != null)
 				currentHint = MobileData.hitboxModes.get(Custom).double;
-			if (ClientPrefs.extraKeys == 3 && MobileData.hitboxModes.get(Custom).triple != null)
+			if (KadeEngineData.extraKeys == 3 && MobileData.hitboxModes.get(Custom).triple != null)
 				currentHint = MobileData.hitboxModes.get(Custom).triple;
-			if (ClientPrefs.extraKeys == 4 && MobileData.hitboxModes.get(Custom).quad != null)
+			if (KadeEngineData.extraKeys == 4 && MobileData.hitboxModes.get(Custom).quad != null)
 				currentHint = MobileData.hitboxModes.get(Custom).quad;
 			for (buttonData in currentHint)
 			{
@@ -60,7 +60,7 @@ class Hitbox extends FlxSpriteGroup
 				var buttonHeight = buttonData.height;
 				var buttonColor = buttonData.color;
 				var customReturn = buttonData.returnKey;
-				var location = ClientPrefs.hitboxLocation;
+				var location = KadeEngineData.hitboxLocation;
 				switch (location)
 				{
 					case 'Top':
@@ -109,7 +109,7 @@ class Hitbox extends FlxSpriteGroup
 				add(Reflect.field(this, buttonData.button));
 			}
 		}
-		else if (ClientPrefs.extraKeys == 0)
+		else if (KadeEngineData.extraKeys == 0)
 		{
 			add(buttonLeft = createHint(0, 0, Std.int(FlxG.width / 4), Std.int(FlxG.height * 1), 0xFFC24B99));
 			add(buttonDown = createHint(FlxG.width / 4, 0, Std.int(FlxG.width / 4), Std.int(FlxG.height * 1), 0xFF00FFFF));
@@ -118,14 +118,14 @@ class Hitbox extends FlxSpriteGroup
 		}
 		else
 		{
-			if (ClientPrefs.hitboxLocation == 'Bottom')
+			if (KadeEngineData.hitboxLocation == 'Bottom')
 			{
 				add(buttonLeft = createHint(0, 0, Std.int(FlxG.width / 4), Std.int(FlxG.height * 0.8), 0xFFC24B99));
 				add(buttonDown = createHint(FlxG.width / 4, 0, Std.int(FlxG.width / 4), Std.int(FlxG.height * 0.8), 0xFF00FFFF));
 				add(buttonUp = createHint(FlxG.width / 2, 0, Std.int(FlxG.width / 4), Std.int(FlxG.height * 0.8), 0xFF12FA05));
 				add(buttonRight = createHint((FlxG.width / 2) + (FlxG.width / 4), 0, Std.int(FlxG.width / 4), Std.int(FlxG.height * 0.8), 0xFFF9393F));
 
-				switch (ClientPrefs.extraKeys)
+				switch (KadeEngineData.extraKeys)
 				{
 					case 1:
 						add(buttonExtra1 = createHint(0, (FlxG.height / 5) * 4, FlxG.width, Std.int(FlxG.height / 5), 0xFFFF00));
@@ -144,7 +144,7 @@ class Hitbox extends FlxSpriteGroup
 						add(buttonExtra4 = createHint(FlxG.width / 4 * 3, (FlxG.height / 5) * 4, Std.int(FlxG.width / 4), Std.int(FlxG.height / 5), 0x00FF00));
 				}
 			}
-			else if (ClientPrefs.hitboxLocation == 'Top')
+			else if (KadeEngineData.hitboxLocation == 'Top')
 			{ // Top
 				add(buttonLeft = createHint(0, (FlxG.height / 5) * 1, Std.int(FlxG.width / 4), Std.int(FlxG.height * 0.8), 0xFFC24B99));
 				add(buttonDown = createHint(FlxG.width / 4, (FlxG.height / 5) * 1, Std.int(FlxG.width / 4), Std.int(FlxG.height * 0.8), 0xFF00FFFF));
@@ -152,7 +152,7 @@ class Hitbox extends FlxSpriteGroup
 				add(buttonRight = createHint((FlxG.width / 2) + (FlxG.width / 4), (FlxG.height / 5) * 1, Std.int(FlxG.width / 4), Std.int(FlxG.height * 0.8),
 					0xFFF9393F));
 
-				switch (ClientPrefs.extraKeys)
+				switch (KadeEngineData.extraKeys)
 				{
 					case 1:
 						add(buttonExtra1 = createHint(0, 0, FlxG.width, Std.int(FlxG.height / 5), 0xFFFF00));
@@ -177,7 +177,7 @@ class Hitbox extends FlxSpriteGroup
 				add(buttonUp = createHint(FlxG.width / 5 * 3, 0, Std.int(FlxG.width / 5), Std.int(FlxG.height * 1), 0x00FF00));
 				add(buttonRight = createHint(FlxG.width / 5 * 4, 0, Std.int(FlxG.width / 5), Std.int(FlxG.height * 1), 0xFF0000));
 
-				switch (ClientPrefs.extraKeys)
+				switch (KadeEngineData.extraKeys)
 				{
 					case 1:
 						add(buttonExtra1 = createHint(FlxG.width / 5 * 2, 0, Std.int(FlxG.width / 5), Std.int(FlxG.height * 1), 0xFFFF00));
@@ -223,10 +223,10 @@ class Hitbox extends FlxSpriteGroup
 
 	private function createHintGraphic(Width:Int, Height:Int, Color:Int = 0xFFFFFF):BitmapData
 	{
-		var guh:Float = ClientPrefs.hitboxalpha;
+		var guh:Float = KadeEngineData.hitboxalpha;
 		var shape:Shape = new Shape();
 		shape.graphics.beginFill(Color);
-		if (ClientPrefs.hitboxtype == "No Gradient")
+		if (KadeEngineData.hitboxtype == "No Gradient")
 		{
 			var matrix:Matrix = new Matrix();
 			matrix.createGradientBox(Width, Height, 0, 0, 0);
@@ -235,13 +235,13 @@ class Hitbox extends FlxSpriteGroup
 			shape.graphics.drawRect(0, 0, Width, Height);
 			shape.graphics.endFill();
 		}
-		else if (ClientPrefs.hitboxtype == "No Gradient (Old)")
+		else if (KadeEngineData.hitboxtype == "No Gradient (Old)")
 		{
 			shape.graphics.lineStyle(10, Color, 1);
 			shape.graphics.drawRect(0, 0, Width, Height);
 			shape.graphics.endFill();
 		}
-		else if (ClientPrefs.hitboxtype == "Gradient")
+		else if (KadeEngineData.hitboxtype == "Gradient")
 		{
 			shape.graphics.lineStyle(3, Color, 1);
 			shape.graphics.drawRect(0, 0, Width, Height);
@@ -268,8 +268,8 @@ class Hitbox extends FlxSpriteGroup
 		hint.alpha = 0.00001;
 		hint.onDown.callback = hint.onOver.callback = function()
 		{
-			if (hint.alpha != ClientPrefs.hitboxalpha)
-				hint.alpha = ClientPrefs.hitboxalpha;
+			if (hint.alpha != KadeEngineData.hitboxalpha)
+				hint.alpha = KadeEngineData.hitboxalpha;
 		}
 		hint.onUp.callback = hint.onOut.callback = function()
 		{
@@ -315,7 +315,7 @@ class HitboxOld extends FlxSpriteGroup
 
 		hitbox = new FlxSpriteGroup();
 
-		if (ClientPrefs.extraKeys == 0)
+		if (KadeEngineData.extraKeys == 0)
 		{
 			hitbox.add(add(buttonLeft = createhitbox(0, 0, "left", "mobile/Hitbox/hitbox")));
 			hitbox.add(add(buttonDown = createhitbox(320, 0, "down", "mobile/Hitbox/hitbox")));
@@ -324,9 +324,9 @@ class HitboxOld extends FlxSpriteGroup
 		}
 		else
 		{
-			if (ClientPrefs.hitboxLocation == 'Bottom')
+			if (KadeEngineData.hitboxLocation == 'Bottom')
 			{
-				switch (ClientPrefs.extraKeys)
+				switch (KadeEngineData.extraKeys)
 				{
 					case 2:
 						hitbox.add(add(buttonLeft = createhitbox(0, 0, "left", "mobile/Hitbox/hitboxBottom-2")));
@@ -340,8 +340,8 @@ class HitboxOld extends FlxSpriteGroup
 		}
 
 		var hitbox_hint:FlxSprite = new FlxSprite(0,
-			(ClientPrefs.hitboxLocation == 'Bottom'
-				&& ClientPrefs.extraKeys != 0) ? -150 : 0).loadGraphic(Paths.image('mobile/Hitbox/hitbox_hint'));
+			(KadeEngineData.hitboxLocation == 'Bottom'
+				&& KadeEngineData.extraKeys != 0) ? -150 : 0).loadGraphic(Paths.image('mobile/Hitbox/hitbox_hint'));
 		hitbox_hint.antialiasing = orgAntialiasing;
 		hitbox_hint.alpha = orgAlpha;
 		add(hitbox_hint);

@@ -297,7 +297,7 @@ class Controls extends FlxActionSet
 
 	public function setHitBox(Hitbox:Hitbox, HitboxOld:HitboxOld)
 	{
-		if (ClientPrefs.hitboxmode == 'Classic')
+		if (KadeEngineData.hitboxmode == 'Classic')
 		{
 			inline forEachBound(Control.NOTE_UP, (action, state) -> addHitboxNOTES(action, HitboxOld.buttonUp, state));
 			inline forEachBound(Control.NOTE_DOWN, (action, state) -> addHitboxNOTES(action, HitboxOld.buttonDown, state));

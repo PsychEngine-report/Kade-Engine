@@ -149,7 +149,7 @@ class MobileControls extends FlxSpriteGroup
 			case DUO:
 				initControler(3, CustomMode, CustomAction);
 			case HITBOX:
-				if (ClientPrefs.hitboxmode == 'Classic')
+				if (KadeEngineData.hitboxmode == 'Classic')
 					initControler(4);
 				else
 					initControler(5, CustomMode);
@@ -193,7 +193,7 @@ class MobileControls extends FlxSpriteGroup
 				add(vpad);
 				vpad = extendConfig.loadcustom(vpad);
 			case 4:
-				hbox = new HitboxOld(0.75, ClientPrefs.globalAntialiasing);
+				hbox = new HitboxOld(0.75, KadeEngineData.globalAntialiasing);
 				add(hbox);
 			case 5:
 				if (CustomMode != null || CustomMode != "NONE")
@@ -252,7 +252,7 @@ class CurrentManager
 
 	public function new(control:MobileControls)
 	{
-		if (MobileControls.mode == HITBOX && ClientPrefs.hitboxmode != 'Classic')
+		if (MobileControls.mode == HITBOX && KadeEngineData.hitboxmode != 'Classic')
 		{
 			buttonLeft = control.newhbox.buttonLeft;
 			buttonDown = control.newhbox.buttonDown;
@@ -263,7 +263,7 @@ class CurrentManager
 			buttonExtra3 = control.newhbox.buttonExtra3;
 			buttonExtra4 = control.newhbox.buttonExtra4;
 		}
-		else if (MobileControls.mode == HITBOX && ClientPrefs.hitboxmode == 'Classic')
+		else if (MobileControls.mode == HITBOX && KadeEngineData.hitboxmode == 'Classic')
 		{ // Classic Hitbox Now Support Shift & Space Buttons
 			buttonLeft = control.hbox.buttonLeft;
 			buttonDown = control.hbox.buttonDown;
@@ -272,7 +272,7 @@ class CurrentManager
 			buttonExtra1 = control.hbox.buttonExtra1;
 			buttonExtra2 = control.hbox.buttonExtra2;
 		}
-		else if (ClientPrefs.hitboxmode != 'Classic' && MobileControls.mode != KEYBOARD)
+		else if (KadeEngineData.hitboxmode != 'Classic' && MobileControls.mode != KEYBOARD)
 		{
 			buttonLeft = control.vpad.buttonLeft;
 			buttonDown = control.vpad.buttonDown;

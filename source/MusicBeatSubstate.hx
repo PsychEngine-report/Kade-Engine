@@ -6,7 +6,20 @@ import flixel.text.FlxText;
 import flixel.input.gamepad.FlxGamepad;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
-import flixel.FlxSubState;
+import flixel.addons.ui.FlxUIState;
+import flixel.math.FlxRect;
+import flixel.util.FlxTimer;
+import flixel.addons.transition.FlxTransitionableState;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.FlxSprite;
+import flixel.util.FlxColor;
+import flixel.util.FlxGradient;
+import flixel.FlxState;
+import flixel.FlxCamera;
+import flixel.FlxBasic;
+import flixel.input.actions.FlxActionInput;
+import flixel.util.FlxDestroyUtil;
 
 class MusicBeatSubstate extends FlxSubState
 {
@@ -54,7 +67,7 @@ class MusicBeatSubstate extends FlxSubState
 		controls.setMobilePadUI(mobilePad, DPad, Action);
 		trackedinputsUI = controls.trackedInputsUI;
 		controls.trackedInputsUI = [];
-		mobilePad.alpha = ClientPrefs.mobilePadAlpha;
+		mobilePad.alpha = KadeEngineData.mobilePadAlpha;
 	}
 
 	/*

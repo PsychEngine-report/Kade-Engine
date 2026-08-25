@@ -911,8 +911,7 @@ class PlayState extends MusicBeatState
 			add(judgementCounter);
 		}
 
-		replayTxt = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (PlayStateChangeables.useDownscroll ? 100 : -100), 0, "REPLAY",
-			20);
+		replayTxt = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (PlayStateChangeables.useDownscroll ? 100 : -100), 0, "REPLAY", 20);
 		replayTxt.setFormat(Paths.font("vcr.ttf"), 42, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		replayTxt.borderSize = 4;
 		replayTxt.borderQuality = 2;
@@ -1161,7 +1160,7 @@ class PlayState extends MusicBeatState
 			#if TOUCH_CONTROLS
 			MusicBeatState.mobilec.visible = true;
 			if (MusicBeatState.checkHitbox != true)
-				MusicBeatState.mobilec.alpha = ClientPrefs.mobilePadAlpha;
+				MusicBeatState.mobilec.alpha = KadeEngineData.mobilePadAlpha;
 			#end
 			// this just based on beatHit stuff but compact
 			if (allowedToHeadbang && swagCounter % gfSpeed == 0)
@@ -3308,7 +3307,7 @@ class PlayState extends MusicBeatState
 		#if TOUCH_CONTROLS
 		MusicBeatState.mobilec.visible = false;
 		if (MusicBeatState.checkHitbox != false)
-			MusicBeatState.mobilec.alpha = ClientPrefs.mobilePadAlpha;
+			MusicBeatState.mobilec.alpha = KadeEngineData.mobilePadAlpha;
 		#end
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, handleInput);
 		FlxG.stage.removeEventListener(KeyboardEvent.KEY_UP, releaseInput);

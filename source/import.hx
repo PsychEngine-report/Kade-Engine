@@ -58,4 +58,6 @@ import flixel.group.FlxSpriteGroup;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.graphics.frames.FlxAtlasFrames;
 import shaders.flixel.system.FlxShader;
+
+using StringTools;
 #end

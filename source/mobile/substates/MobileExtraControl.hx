@@ -51,7 +51,7 @@ class MobileExtraControl extends MusicBeatSubstate
 
 		for (i in 1...5)
 		{
-			var data:String = Reflect.field(ClientPrefs, "extraKeyReturn" + i);
+			var data:String = Reflect.field(KadeEngineData, "extraKeyReturn" + i);
 			var _x = FlxG.width / 2 + 25 + (titleWidth + 50) * ((i - 1) - 4 / 2);
 			var titleObject = new ChooseButton(_x, 150, titleWidth, titleHeight, data, "Key " + Std.string(i));
 			titleTeam.add(titleObject);
@@ -140,15 +140,15 @@ class MobileExtraControl extends MusicBeatSubstate
 				switch (titleNum + 1)
 				{
 					case 1:
-						ClientPrefs.extraKeyReturn1 = returnArray[typeNum][chooseNum];
+						KadeEngineData.extraKeyReturn1 = returnArray[typeNum][chooseNum];
 					case 2:
-						ClientPrefs.extraKeyReturn2 = returnArray[typeNum][chooseNum];
+						KadeEngineData.extraKeyReturn2 = returnArray[typeNum][chooseNum];
 					case 3:
-						ClientPrefs.extraKeyReturn3 = returnArray[typeNum][chooseNum];
+						KadeEngineData.extraKeyReturn3 = returnArray[typeNum][chooseNum];
 					case 4:
-						ClientPrefs.extraKeyReturn4 = returnArray[typeNum][chooseNum];
+						KadeEngineData.extraKeyReturn4 = returnArray[typeNum][chooseNum];
 				}
-				ClientPrefs.saveSettings();
+				KadeEngineData.saveSettings();
 				updateTitle(titleNum + 1, false, 2, true);
 			}
 		}
@@ -157,7 +157,7 @@ class MobileExtraControl extends MusicBeatSubstate
 		{
 			if (isMain)
 			{
-				ClientPrefs.saveSettings();
+				KadeEngineData.saveSettings();
 				FlxTransitionableState.skipNextTransIn = true;
 				FlxTransitionableState.skipNextTransOut = true;
 				MusicBeatState.switchState(new options.OptionsState());
@@ -172,10 +172,10 @@ class MobileExtraControl extends MusicBeatSubstate
 		if (reset)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			ClientPrefs.extraKeyReturn1 = ClientPrefs.extraKeyReturn1;
-			ClientPrefs.extraKeyReturn2 = ClientPrefs.extraKeyReturn2;
-			ClientPrefs.extraKeyReturn3 = ClientPrefs.extraKeyReturn3;
-			ClientPrefs.extraKeyReturn4 = ClientPrefs.extraKeyReturn4;
+			KadeEngineData.extraKeyReturn1 = KadeEngineData.extraKeyReturn1;
+			KadeEngineData.extraKeyReturn2 = KadeEngineData.extraKeyReturn2;
+			KadeEngineData.extraKeyReturn3 = KadeEngineData.extraKeyReturn3;
+			KadeEngineData.extraKeyReturn4 = KadeEngineData.extraKeyReturn4;
 			resetTitle();
 		}
 	}
@@ -221,7 +221,7 @@ class MobileExtraControl extends MusicBeatSubstate
 
 			if (i == titleNum)
 			{
-				title.changeExtraText(Reflect.field(ClientPrefs, "extraKeyReturn" + number));
+				title.changeExtraText(Reflect.field(KadeEngineData, "extraKeyReturn" + number));
 				if (needFlicker)
 					FlxFlicker.flicker(title, 0.6, 0.075, true, true);
 				if (changeBG)
@@ -241,7 +241,7 @@ class MobileExtraControl extends MusicBeatSubstate
 		{
 			var title:ChooseButton = titleTeam.members[i];
 			var number = i + 1;
-			title.changeExtraText(Reflect.field(ClientPrefs, "extraKeyReturn" + number));
+			title.changeExtraText(Reflect.field(KadeEngineData, "extraKeyReturn" + number));
 		}
 	}
 }
@@ -264,7 +264,7 @@ class ChooseButton extends FlxSpriteGroup
 
 		titleObject = new FlxText(0, 0, width, title);
 		titleObject.setFormat("VCR OSD Mono", 20, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		titleObject.antialiasing = ClientPrefs.globalAntialiasing;
+		titleObject.antialiasing = KadeEngineData.globalAntialiasing;
 		titleObject.borderSize = 2;
 		titleObject.x = bg.width / 2 - titleObject.width / 2;
 		titleObject.y = bg.height / 2 - titleObject.height / 2;
@@ -274,7 +274,7 @@ class ChooseButton extends FlxSpriteGroup
 		{
 			extendTitleObject = new FlxText(0, 0, width, extendTitle);
 			extendTitleObject.setFormat("VCR OSD Mono", 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			extendTitleObject.antialiasing = ClientPrefs.globalAntialiasing;
+			extendTitleObject.antialiasing = KadeEngineData.globalAntialiasing;
 			extendTitleObject.borderSize = 2;
 			extendTitleObject.x = bg.width / 2 - extendTitleObject.width / 2;
 			extendTitleObject.y = 30;
