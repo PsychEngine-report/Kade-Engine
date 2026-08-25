@@ -4,14 +4,19 @@ import flixel.FlxG;
 
 class KadeEngineData
 {
-	public static var extraButtons:String = "NONE"; // mobile extra button option
-	public static var hitboxPos:Bool = true; // hitbox extra button position option
-	public static var controlsAlpha:Float = FlxG.onMobile ? 0.6 : 0;
-	public static var screensaver:Bool = false;
-	public static var hitboxType:String = "Gradient";
-	public static var popUpRating:Bool = true;
-	public static var vsync:Bool = false;
-	public static var gameOverVibration:Bool = false;
+	public static var extraKeys:Int = 0;
+    public static var hitboxLocation:String = 'Bottom';
+    public static var hitboxmode:String = 'New';
+    public static var hitboxtype:String = 'Gradient';
+    public static var storageType:String = 'EXTERNAL';
+    public static var hitboxhint:Bool = false;
+    public static var mobilePadAlpha:Float = 0.6;
+    public static var hitboxalpha:Float = 0.7;
+    public static var extraKeyReturn1:String = 'SHIFT';
+    public static var extraKeyReturn2:String = 'SPACE';
+    public static var extraKeyReturn3:String = 'Q';
+    public static var extraKeyReturn4:String = 'E';
+	public static var wideScreen:Bool = false;
 	
 	public static function initSave()
 	{
