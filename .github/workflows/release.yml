@@ -46,7 +46,7 @@ jobs:
             buildArgs: "windows -D officialBuild -D HXCPP_M64 -final -release"
             artifactName: windowsBuild64
             artifactPath: export/release/windows/bin/*
-
+            system: Windows
           - name: Windows X32
             os: windows-2022
             setupCommand: ./setup/windows.bat
