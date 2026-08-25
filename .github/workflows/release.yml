@@ -54,6 +54,24 @@ jobs:
             artifactName: windowsBuild32
             artifactPath: export/release/windows/bin/*
             system: Windows
+          - name: Linux
+            os: ubuntu-24.04
+            buildArgs: "linux -D officialBuild -final -release"
+            artifactName: Linux
+            artifactPath: export/release/linux/bin/*
+            system: Linux
+          - name: MacOS
+            os: macos-15
+            buildArgs: "mac -D officialBuild -final -release"
+            artifactName: MacOS
+            artifactPath: export/release/macos/bin/*
+            system: MacOS
+          - name: Html5
+            os: ubuntu-24.04
+            buildArgs: "html5 -D officialBuild -final -release"
+            artifactName: HTML5
+            artifactPath: export/release/html5/bin/*
+            system: Html5
           - name: Android
             os: ubuntu-24.04
             buildArgs: "android -D officialBuild -final -release" 
