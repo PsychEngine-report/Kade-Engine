@@ -48,4 +48,13 @@ class CoolUtil
 		}
 		return dumbArray;
 	}
+
+	public static function showPopUp(message:String, title:String):Void
+	{
+		/*#if android
+		android.Tools.showAlertDialog(title, message, {name: "OK", func: null}, null);
+		#else*/
+		FlxG.stage.window.alert(message, title);
+		//#end
+	}
 }
