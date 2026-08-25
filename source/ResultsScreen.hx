@@ -30,6 +30,14 @@ import lime.app.Application;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.input.FlxKeyManager;
+import flixel.input.gamepad.FlxGamepad;
+import flixel.input.actions.FlxAction;
+import flixel.input.actions.FlxActionInput;
+import flixel.input.actions.FlxActionInputDigital;
+import flixel.input.actions.FlxActionManager;
+import flixel.input.actions.FlxActionSet;
+import flixel.input.gamepad.FlxGamepadButton;
+import flixel.input.gamepad.FlxGamepadInputID;
 
 using StringTools;
 
