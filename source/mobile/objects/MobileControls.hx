@@ -193,7 +193,7 @@ class MobileControls extends FlxSpriteGroup
 				add(vpad);
 				vpad = extendConfig.loadcustom(vpad);
 			case 4:
-				hbox = new HitboxOld(0.75, KadeEngineData.globalAntialiasing);
+				hbox = new HitboxOld(0.75);
 				add(hbox);
 			case 5:
 				if (CustomMode != null || CustomMode != "NONE")

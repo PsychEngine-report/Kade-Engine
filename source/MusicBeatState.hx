@@ -26,6 +26,7 @@ import flixel.FlxState;
 import flixel.FlxCamera;
 import flixel.FlxBasic;
 import flixel.input.actions.FlxActionInput;
+import flixel.FlxSubState;
 import flixel.util.FlxDestroyUtil;
 
 class MusicBeatState extends FlxUIState
@@ -49,7 +50,21 @@ class MusicBeatState extends FlxUIState
 	{
 		Application.current.window.onFocusIn.remove(onWindowFocusOut);
 		Application.current.window.onFocusIn.remove(onWindowFocusIn);
+		#if TOUCH_CONTROLS
+		if (trackedinputsNOTES.length > 0)
+			controls.removeVirtualControlsInput(trackedinputsNOTES);
+
+		if (trackedinputsUI.length > 0)
+			controls.removeVirtualControlsInput(trackedinputsUI);
+
 		super.destroy();
+
+		if (mobilePad != null)
+			mobilePad = FlxDestroyUtil.destroy(mobilePad);
+
+		if (mobilec != null)
+			mobilec = FlxDestroyUtil.destroy(mobilec);
+		#end
 	}
 
 	override function add(Object:flixel.FlxBasic):flixel.FlxBasic
@@ -160,22 +175,6 @@ class MusicBeatState extends FlxUIState
 		public function addVirtualPadCamera()
 			return addMobilePadCamera();
 	 */
-	override function destroy()
-	{
-		if (trackedinputsNOTES.length > 0)
-			controls.removeVirtualControlsInput(trackedinputsNOTES);
-
-		if (trackedinputsUI.length > 0)
-			controls.removeVirtualControlsInput(trackedinputsUI);
-
-		super.destroy();
-
-		if (mobilePad != null)
-			mobilePad = FlxDestroyUtil.destroy(mobilePad);
-
-		if (mobilec != null)
-			mobilec = FlxDestroyUtil.destroy(mobilec);
-	}
 	#end
 
 	override function create()
