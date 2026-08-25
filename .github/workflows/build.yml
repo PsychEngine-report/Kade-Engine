@@ -38,13 +38,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: Setup Haxe
-        if: inputs.system == 'Android'
-        uses: krdlab/setup-haxe@v1.2.0
-        with:
-          haxe-version: ${{ env.HAXE_VERSION }}
-
-      - name: Setup Haxe
-        if: inputs.system == 'Windows'
+        if: (inputs.system == 'Windows' || inputs.system == 'Linux' || inputs.system == 'MacOs' || inputs.system == 'Html5' || inputs.system == 'Android')
         uses: krdlab/setup-haxe@v1.2.0
         with:
           haxe-version: ${{ env.HAXE_VERSION }}
