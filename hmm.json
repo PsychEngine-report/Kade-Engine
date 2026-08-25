@@ -73,8 +73,8 @@
     },
     {
       "name": "polymod",
-      "type": "git",
-      "url": "https://github.com/Ethantobot11/polymod.git"
+      "type": "haxelib",
+      "version": "1.3.1"
     },
     {
       "name": "extension-webm",
